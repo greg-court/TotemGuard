@@ -49,7 +49,8 @@ fun getVersionMeta(includeHash: Boolean): String {
     return "$commitHash-SNAPSHOT"
 }
 version = "$fullVersion${getVersionMeta(true)}"
-ext["versionNoHash"] = "$fullVersion${getVersionMeta(false)}"
+// Keep the API version unchanged and identify this compatibility build in plugin metadata.
+ext["versionNoHash"] = "$fullVersion${getVersionMeta(false)}-semianarchy.1"
 
 tasks {
     jar {
